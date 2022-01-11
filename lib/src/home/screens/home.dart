@@ -14,7 +14,6 @@ class Home extends StatelessWidget {
       body: Container(
             child: Column(
               children: [
-                const Text("Home"),
                 UIElements(),
               ],
             ),

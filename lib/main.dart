@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vcui/src/buttons/screens/buttons_demo.dart';
+import 'package:vcui/src/elements/screens/buttons_demo.dart';
+import 'package:vcui/src/elements/screens/labels_demo.dart';
+import 'package:vcui/src/elements/screens/toast_messages_demo.dart';
 import 'package:vcui/src/home/screens/home.dart';
+import 'package:vcui/src/usage/screens/ui_usage.dart';
+import 'package:vcui/vui/app_theme/themedata.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +18,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Validus UI',
-      theme: ThemeData(
+      /*theme: ThemeData(
         primarySwatch: Colors.blue,
-      ),
+      ),*/
+      theme: AppThemeData.appThemeData(),
       initialRoute: "/",
       routes: {
         "/" : (context) => const Home(),
         ButtonsDemo.routeName : (context) => const ButtonsDemo(),
+        Usage.routeName : (context) => Usage(title: '', usage: '',),
+        LabelsDemo.routeName : (context) => const LabelsDemo(),
+        ToastMessagesDemo.routeName : (context) => const ToastMessagesDemo(),
       },
     );
   }

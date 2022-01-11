@@ -8,12 +8,16 @@ class UIElements extends StatelessWidget {
 
   final List elements = [
     {
-      "element" : "Button",
+      "element" : "Buttons",
       "path" : "/buttonsDemo",
     },
     {
       "element" : "Labels",
-      "path" : "/buttonsDemo",
+      "path" : "/labelsDemo",
+    },
+    {
+      "element" : "Toast Messages / Snackbar Messages",
+      "path" : "/toastMessagesDemo",
     },
   ];
 
@@ -28,10 +32,14 @@ class UIElements extends StatelessWidget {
             shrinkWrap: true,
             primary: false,
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                height: 50,
-                color: Colors.amber[colorCodes[index]],
-                child: Center(child: Text('${elements[index]["element"]}')),
+              return InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, elements[index]["path"]);
+                },
+                child: ListTile(
+                  leading: const Icon(Icons.ac_unit_outlined),
+                  title: Text('${elements[index]["element"]}'),
+                ),
               );
             },
             separatorBuilder: (BuildContext context, int index) => const Divider(),
