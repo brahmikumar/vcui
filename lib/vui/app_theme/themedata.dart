@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vcui/vui/app_theme/appbar_theme.dart';
-import 'package:vcui/vui/app_theme/button_theme.dart';
-import 'package:vcui/vui/app_theme/card_theme.dart';
-import 'package:vcui/vui/app_theme/dialog_theme.dart';
-import 'package:vcui/vui/app_theme/text_theme.dart';
-
+import 'appbar_theme.dart';
+import 'button_theme.dart';
+import 'card_theme.dart';
+import 'dialog_theme.dart';
+import 'text_theme.dart';
 
 class AppThemeData{
   static appThemeData(){

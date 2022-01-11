@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vcui/vui/colors/colors.dart';
+import "../../colors/colors.dart";
 
 class AppOutlinedButton extends StatelessWidget {
   String title;
