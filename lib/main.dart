@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vcui/src/elements/screens/alert_dialog.dart';
+import 'package:vcui/src/elements/screens/bottom_modelsheet_demo.dart';
 import 'package:vcui/src/elements/screens/buttons_demo.dart';
 import 'package:vcui/src/elements/screens/labels_demo.dart';
 import 'package:vcui/src/elements/screens/toast_messages_demo.dart';
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
         Usage.routeName : (context) => Usage(title: '', usage: '',),
         LabelsDemo.routeName : (context) => const LabelsDemo(),
         ToastMessagesDemo.routeName : (context) => const ToastMessagesDemo(),
+        AlertDialogDemo.routeName : (context) => const AlertDialogDemo(),
+        BottomModelSheetDemo.routeName : (context) => const BottomModelSheetDemo(),
       },
     );
   }

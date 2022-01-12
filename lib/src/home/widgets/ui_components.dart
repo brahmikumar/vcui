@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 class UIElements extends StatelessWidget {
   UIElements({Key? key}) : super(key: key);
 
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
-
   final List elements = [
     {
       "element" : "Buttons",
@@ -18,6 +15,14 @@ class UIElements extends StatelessWidget {
     {
       "element" : "Toast Messages / Snackbar Messages",
       "path" : "/toastMessagesDemo",
+    },
+    {
+      "element" : "Alert Dialog",
+      "path" : "/alertDialogDemo",
+    },
+    {
+      "element" : "Bottom Model Sheet",
+      "path" : "/bottomModelSheetDemo",
     },
   ];
 
