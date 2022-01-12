@@ -26,4 +26,9 @@ class AppColors{
   static const Color colorAlphaDeepBlue = Color.fromRGBO(23, 63, 146, 0.2);
   static const Color colorAlphaGrayFourteen = Color.fromRGBO(228, 231, 239, 0.2);
 
+  /* Risk status colors */
+  static const Color lowRisk = Color(0xFF49A071);
+  static const Color lowMediumRisk = Color(0xFFAA9C00);
+  static const Color mediumRisk = Color(0xFFF57941);
+  static const Color highRisk = Color(0xFFA80B00);
 }

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import '../colors/colors.dart';
 
 Widget lowRiskLabel(text) {
-  return Text(text, style: const TextStyle(color: Color(0xff49A071)));
+  return Text(text, style: const TextStyle(color: AppColors.lowRisk));
 }
 
 Widget lowMediumRiskLabel(text) {
-  return Text(text, style: const TextStyle(color: Color(0xffAA9C00)));
+  return Text(text, style: const TextStyle(color: AppColors.lowMediumRisk));
 }
 
 Widget mediumRiskLabel(text) {
-  return Text(text, style: const TextStyle(color: Color(0xffF57941)));
+  return Text(text, style: const TextStyle(color: AppColors.mediumRisk));
 }
 
 Widget highRiskLabel(text) {
-  return Text(text, style: const TextStyle(color: Color(0xffA80B00)));
+  return Text(text, style: const TextStyle(color: AppColors.highRisk));
 }
 
 Widget headlineLabel(context,text) {
