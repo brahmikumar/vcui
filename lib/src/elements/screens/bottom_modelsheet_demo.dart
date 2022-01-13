@@ -24,6 +24,9 @@ class BottomModelSheetDemo extends StatelessWidget {
                 showModalBottomSheet<dynamic>(
                     isScrollControlled: true,
                     context: context,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                     builder: (context) {
                       return AppBottomModelSheet(
                         title: "Confirm",

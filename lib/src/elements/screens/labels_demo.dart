@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vcui/src/utils/getUsage.dart';
 import 'package:vcui/src/utils/labels_usage_data.dart';
-import 'package:vcui/vui/ui_components/buttons.dart';
+import 'package:vcui/src/widgets/usage_bottom_navigation.dart';
 import 'package:vcui/vui/ui_components/labels.dart';
 
 class LabelsDemo extends StatelessWidget {
@@ -28,19 +27,18 @@ class LabelsDemo extends StatelessWidget {
 
               lowMediumRiskLabel("Warning"),
               const Divider(),
+
               mediumRiskLabel("Error"),
               const Divider(),
 
               highRiskLabel("Delete"),
               const Divider(),
 
-              button("Labels Usage", () => getUsage("Normal Button", LabelsUsage.labelUsage, context)),
-              const Divider(),
-
             ],
           ),
         ),
       ),
+      bottomNavigationBar: UsageBottomNavigation("Labels", LabelsUsage.labelUsage),
     );
   }
 }

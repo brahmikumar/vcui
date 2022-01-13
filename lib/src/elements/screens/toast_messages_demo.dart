@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vcui/src/utils/getUsage.dart';
 import 'package:vcui/src/utils/toast_messages_usage.dart';
+import 'package:vcui/src/widgets/usage_bottom_navigation.dart';
 import 'package:vcui/vui/colors/colors.dart';
 import 'package:vcui/vui/ui_components/buttons.dart';
 import 'package:vcui/vui/ui_components/snackbar.dart';
@@ -58,6 +59,7 @@ class ToastMessagesDemo extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: UsageBottomNavigation("Toast Messages", ToastMessagesUsage.toastMessagesUsage),
     );
   }
 }

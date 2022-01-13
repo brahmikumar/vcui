@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vcui/src/utils/alert_dialog_usage.dart';
 import 'package:vcui/src/utils/app_meessages.dart';
 import 'package:vcui/src/utils/getUsage.dart';
+import 'package:vcui/src/widgets/usage_bottom_navigation.dart';
 import 'package:vcui/vui/ui_components/alertDialog.dart';
 import 'package:vcui/vui/ui_components/buttons.dart';
 import 'package:vcui/vui/ui_components/snackbar.dart';
@@ -76,6 +77,7 @@ class AlertDialogDemo extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: UsageBottomNavigation("Alert Dialog", AlertDialogUsage.alertDialogUsage),
     );
   }
 }

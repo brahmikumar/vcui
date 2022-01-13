@@ -15,6 +15,7 @@ class AppColors{
 
   /* Sequential palette */
   static const Color colorSeqBlueOne = Color(0xFFdee7ef);
+  static Color colorBlue = colorSeqBlueOne;
   static const Color colorSeqBlueTwo = Color(0xFFc1ced8);
   static const Color colorSeqBlueThree= Color(0xFF90a8b9);
   static const Color colorSeqBlueFour = Color(0xFF648096);
