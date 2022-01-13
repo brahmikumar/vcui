@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vcui/src/utils/app_meessages.dart';
 import 'package:vcui/vui/ui_components/bottom_model_sheet.dart';
 import 'package:vcui/vui/ui_components/buttons.dart';
 
@@ -20,68 +19,55 @@ class BottomModelSheetDemo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              textButton("Basic Bottom Model Sheet", (){
-                showModalBottomSheet<dynamic>(
-                    isScrollControlled: true,
-                    context: context,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    builder: (context) {
-                      return AppBottomModelSheet(
-                        title: "Confirm",
-                        message: Messages.logoutConfirmMsg,
-                      );
-                    }
-                  );
+              textButton(
+                "Basic Bottom Model Sheet",
+                (){
+                  bottomSheet(context, title: "Alert", message: "Welcome");
                 }
               ),
               const Divider(),
 
-              textButton("Bottom model sheet With out close", (){
-                showModalBottomSheet<dynamic>(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) {
-                      return AppBottomModelSheet(
-                        title: "Confirm",
-                        message: Messages.logoutConfirmMsg,
-                        isCloseButton: false,
-                      );
-                    }
-                  );
+              textButton(
+                "Bottom model sheet with out close",
+                (){
+                  bottomSheet(context, title: "Update app version", message: "Required to update app for accessing new features", isCloseButton: false);
                 }
               ),
               const Divider(),
 
-              textButton("Bottom model sheet having actions", (){
-                showModalBottomSheet<dynamic>(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) {
-                      return AppBottomModelSheet(
-                        title: "Delete Facility",
-                        message: Messages.deleteFacilityConfirmMsg,
-                        actions: [
-                          {
-                            "title": "Cancel",
-                            "onPressHandler": (){
-                              Navigator.pop(context);
-                            }
-                          },
-                          {
-                            "title": "Delete",
-                            "onPressHandler": (){
-                              print("perform task");
-                            }
-                          },
-                        ]
-                      );
-                    }
-                );
-              }),
+              textButton("Model sheet with rounded corners ", (){
+                  bottomSheet(context, title: "New features", message: "Added model sheet with rounded corners", isCloseButton: true, modelSheetRadius: 10.0);
+                }
+              ),
               const Divider(),
 
+              textButton(
+                "Bottom model sheet having actions",
+                (){
+                  bottomSheet(
+                    context,
+                    title: "Logout",
+                    message: "Are you sure you want to logout",
+                    isCloseButton: true,
+                    modelSheetRadius: 10.0,
+                    actions : [
+                      {
+                        "title": "Cancel",
+                        "onPressHandler": (){
+                          Navigator.pop(context);
+                        }
+                      },
+                      {
+                        "title": "Continue",
+                        "onPressHandler": (){
+                          print("perform task");
+                        }
+                      },
+                    ],
+                  );
+                }
+              ),
+              const Divider(),
             ],
           ),
         ),

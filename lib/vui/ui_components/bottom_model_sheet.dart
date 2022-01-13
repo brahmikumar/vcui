@@ -88,3 +88,22 @@ class AppBottomModelSheet extends StatelessWidget {
     );
   }
 }
+
+
+Future bottomSheet(context,{ title, message, actions = const [], isCloseButton = true, modelSheetRadius= 0.0}) {
+  return showModalBottomSheet<dynamic>(
+      isScrollControlled: true,
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(modelSheetRadius),
+      ),
+      builder: (context) {
+        return AppBottomModelSheet(
+            title: title,
+            message: message,
+            actions: actions,
+            isCloseButton: isCloseButton
+        );
+      }
+  );
+}
