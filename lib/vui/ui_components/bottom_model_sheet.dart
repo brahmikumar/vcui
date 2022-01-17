@@ -53,10 +53,21 @@ class AppBottomModelSheet extends StatelessWidget {
                     Row(
                       children: [
                         for(int index=0; actions.length> index; index++)
+                          (index == 0) ?
                           Expanded(
                             flex: 1,
                             child: Center(
                               child: outlinedButton(
+                                actions[index]["title"],
+                                actions[index]["onPressHandler"],
+                              ),
+                            ),
+                          )
+                          :
+                          Expanded(
+                            flex: 1,
+                            child: Center(
+                              child: button(
                                 actions[index]["title"],
                                 actions[index]["onPressHandler"],
                               ),

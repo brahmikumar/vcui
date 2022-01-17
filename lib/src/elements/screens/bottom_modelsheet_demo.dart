@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vcui/src/utils/bottom_model_sheet_usage.dart';
+import 'package:vcui/src/widgets/usage_bottom_navigation.dart';
 import 'package:vcui/vui/ui_components/bottom_model_sheet.dart';
 import 'package:vcui/vui/ui_components/buttons.dart';
 
@@ -22,7 +24,7 @@ class BottomModelSheetDemo extends StatelessWidget {
               textButton(
                 "Basic Bottom Model Sheet",
                 (){
-                  bottomSheet(context, title: "Alert", message: "Welcome");
+                  bottomSheet(context, title: "Update app version", message: "Required to update app for accessing new features");
                 }
               ),
               const Divider(),
@@ -47,7 +49,7 @@ class BottomModelSheetDemo extends StatelessWidget {
                   bottomSheet(
                     context,
                     title: "Logout",
-                    message: "Are you sure you want to logout",
+                    message: "Are you sure you want to logout?",
                     isCloseButton: true,
                     modelSheetRadius: 10.0,
                     actions : [
@@ -60,7 +62,7 @@ class BottomModelSheetDemo extends StatelessWidget {
                       {
                         "title": "Continue",
                         "onPressHandler": (){
-                          print("perform task");
+                          Navigator.pop(context);
                         }
                       },
                     ],
@@ -72,6 +74,7 @@ class BottomModelSheetDemo extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: UsageBottomNavigation("Bottom Model Sheet", BottomModelSheetUsage.bottomModelSheetUsage),
     );
   }
 }
