@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vcui/vui/ui_components/buttons.dart';
+import 'buttons.dart';
 
 class AppBottomModelSheet extends StatelessWidget {
   String title;

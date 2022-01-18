@@ -20,9 +20,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Validus UI',
-      /*theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),*/
       theme: AppThemeData.appThemeData(),
       initialRoute: "/",
       routes: {
