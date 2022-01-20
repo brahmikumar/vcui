@@ -35,4 +35,22 @@ import 'package:vcui/vui/ui_components/alertDialog.dart';
     </pre>
   """;
 
+  static const String alertDialogUsageCode = """
+import 'package:vcui/vui/ui_components/alertDialog.dart';
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) => AppAlertDialog(
+      "Alert Dialog Title",
+      "massage",
+      [
+        {
+          "title": "ok",
+          "action": (){},
+        },
+      ], // Each action object having two fields action title and actionHandler
+    ),
+  )
+  """;
+
 }

@@ -43,4 +43,22 @@ action: // Default value is empty array, set model sheet actions, acton object h
     </pre>
   """;
 
+  static const String bottomModelSheetUsageCode = """
+import 'package:vcui/vui/ui_components/bottom_model_sheet.dart';
+
+bottomSheet(
+  context,
+  title: "Logout",
+  message: "Are you sure you want to logout",
+  isCloseButton: true,
+  modelSheetRadius: 10.0,
+  actions : [
+    {
+      "title": "Cancel",
+      "onPressHandler": (){}
+    },
+  ],
+);
+  """;
+
 }

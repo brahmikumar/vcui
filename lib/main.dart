@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/" : (context) => const Home(),
-        ButtonsDemo.routeName : (context) => const ButtonsDemo(),
+        ButtonsDemo.routeName : (context) => ButtonsDemo(),
         Usage.routeName : (context) => Usage(title: '', usage: '',),
         LabelsDemo.routeName : (context) => const LabelsDemo(),
         ToastMessagesDemo.routeName : (context) => const ToastMessagesDemo(),

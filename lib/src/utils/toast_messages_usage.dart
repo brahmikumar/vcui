@@ -17,4 +17,19 @@ import 'package:vcui/vui/ui_components/snackbar.dart';
     </pre>
   """;
 
+  static const String toastMessagesUsageCode = """
+import 'package:vcui/vui/ui_components/snackbar.dart';
+    
+  ToastMessage.snackBarMessage(context, "Message");
+
+  ToastMessage.errorSnackBar(context, "Message");
+
+  ToastMessage.actionSnackBar(
+    context, 
+    "Message", 
+    "Action Button Text", 
+    onClickHandler,
+  );
+    """;
+
 }

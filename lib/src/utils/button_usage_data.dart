@@ -1,6 +1,7 @@
 class ButtonUsage{
   static const String normalButton = """
     <pre>
+    <code>
 import 'package:vcui/vui/ui_components/buttons.dart';
     
     button("Button title", onPressHandler);
@@ -9,7 +10,16 @@ import 'package:vcui/vui/ui_components/buttons.dart';
     button("Normal Button", (){
       Navigator.pushNamed(context, '/usage');
     })
+    </code>
     </pre>
+  """;
+
+  static const String normalButtonCode = """
+   
+import 'package:vcui/vui/ui_components/buttons.dart';
+    
+    button("Button title", (){});
+
   """;
 
   static const String textButton = """

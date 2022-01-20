@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:vcui/src/utils/alert_dialog_usage.dart';
 import 'package:vcui/src/utils/app_meessages.dart';
 import 'package:vcui/src/widgets/usage_bottom_navigation.dart';
@@ -6,71 +8,113 @@ import 'package:vcui/vui/ui_components/alertDialog.dart';
 import 'package:vcui/vui/ui_components/buttons.dart';
 import 'package:vcui/vui/ui_components/snackbar.dart';
 
-class AlertDialogDemo extends StatelessWidget {
+class AlertDialogDemo extends StatefulWidget {
   static const routeName = "/alertDialogDemo";
   const AlertDialogDemo({Key? key}) : super(key: key);
+
+  @override
+  State<AlertDialogDemo> createState() => _AlertDialogDemoState();
+}
+
+class _AlertDialogDemoState extends State<AlertDialogDemo>  with TickerProviderStateMixin{
+  late TabController tabController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(length: 2, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Alert Dialogs"),
+        bottom: TabBar(
+          controller: tabController,
+          tabs: [
+            Tab(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Icon(Icons.phone_android),
+                  Text("Preview", style: TextStyle(fontSize: 18),),
+                ],
+              ),
+            ),
+            Tab(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Icon(Icons.code),
+                  Text("Code", style: TextStyle(fontSize: 18),),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              textButton(
-                "Submit",
-                () => showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AppAlertDialog(
-                      "Submit",
-                      Messages.formSubmitConfirmMsg,
-                      [
-                        {
-                          "title": "ok",
-                          "action": (){
-                            Navigator.pop(context);
-                            ToastMessage.snackBarMessage(context, Messages.formSubmitSuccessMsg);
-                          },
-                        },
-                      ]
-                  ),
-                )
-              ),
-              const Divider(),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height-200,
+            child: TabBarView(
+              controller: tabController,
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      textButton(
+                          "Submit",
+                              () => showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AppAlertDialog(
+                                "Submit",
+                                Messages.formSubmitConfirmMsg,
+                                [
+                                  {
+                                    "title": "ok",
+                                    "action": (){
+                                      Navigator.pop(context);
+                                      ToastMessage.snackBarMessage(context, Messages.formSubmitSuccessMsg);
+                                    },
+                                  },
+                                ]
+                            ),
+                          )
+                      ),
+                      const Divider(),
 
-              textButton(
-                "Logout",
-                () => showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AppAlertDialog(
-                      "Logout",
-                      Messages.logoutConfirmMsg,
-                      [
-                        {
-                          "title": "ok",
-                          "action": (){
-                            Navigator.pop(context);
-                            ToastMessage.snackBarMessage(context, Messages.logoutSuccessMsg);
-                          },
-                        },
-                        {
-                          "title": "Cancel",
-                          "action": (){
-                            Navigator.pop(context);
-                          },
-                        }
-                      ]
-                  ),
-                )
-              ),
-              const Divider(),
+                      textButton(
+                          "Logout",
+                              () => showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AppAlertDialog(
+                                "Logout",
+                                Messages.logoutConfirmMsg,
+                                [
+                                  {
+                                    "title": "ok",
+                                    "action": (){
+                                      Navigator.pop(context);
+                                      ToastMessage.snackBarMessage(context, Messages.logoutSuccessMsg);
+                                    },
+                                  },
+                                  {
+                                    "title": "Cancel",
+                                    "action": (){
+                                      Navigator.pop(context);
+                                    },
+                                  }
+                                ]
+                            ),
+                          )
+                      ),
+                      const Divider(),
 
-              /*textButton(
+                      /*textButton(
                   "Logout",
                       () => showDialog<String>(
                     context: context,
@@ -82,11 +126,29 @@ class AlertDialogDemo extends StatelessWidget {
                   )
               ),*/
 
-            ],
-          ),
+                    ],
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ElevatedButton(onPressed: (){
+                        Clipboard.setData(const ClipboardData(text: AlertDialogUsage.alertDialogUsageCode));
+                      }, child: Text("Copy Code")),
+                      Html(
+                          data: AlertDialogUsage.alertDialogUsage
+                      ),
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
+          )
+
         ),
       ),
-      bottomNavigationBar: UsageBottomNavigation("Alert Dialog", AlertDialogUsage.alertDialogUsage),
+      //bottomNavigationBar: UsageBottomNavigation("Alert Dialog", AlertDialogUsage.alertDialogUsage),
     );
   }
 }
