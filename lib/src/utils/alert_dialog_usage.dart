@@ -3,54 +3,47 @@ class AlertDialogUsage{
     <pre>
 import 'package:vcui/vui/ui_components/alertDialog.dart';
 
-  showDialog(
-    context: context,
-    builder: (BuildContext context) => AppAlertDialog(
-      "Alert Dialog Title",
-      "massage",
-      actionsList, // Each action object having two fields action title and actionHandler
-    ),
+  alertDialog(
+    context, 
+    title: "Offline", 
+    message: "You are in offline mode",
+    actions: [], // optional
   )
     
   <h1>Example</h1>  
   textButton(
     "Submit",
-    () => showDialog(
-      context: context,
-      builder: (BuildContext context) => AppAlertDialog(
-          "Submit",
-          Messages.formSubmitConfirmMsg,
-          [
-            {
-              "title": "ok",
-              "action": (){
-                Navigator.pop(context);
-                ToastMessage.snackBarMessage(context, Messages.formSubmitSuccessMsg);
-              },
-            },
-          ]
-      ),
-    )
+    (){
+      alertDialog(
+        context, 
+        title: "Submit", 
+        message: "Once you submit you con not modify",
+        actions:  [
+          {
+            "title": "ok",
+            "action": (){ },
+          },
+        ], // optional
+      )
+    } 
   )
     </pre>
   """;
 
-  static const String alertDialogUsageCode = """
+static const String alertDialogUsageCode = """
 import 'package:vcui/vui/ui_components/alertDialog.dart';
 
-  showDialog(
-    context: context,
-    builder: (BuildContext context) => AppAlertDialog(
-      "Alert Dialog Title",
-      "massage",
-      [
-        {
-          "title": "ok",
-          "action": (){},
-        },
-      ], // Each action object having two fields action title and actionHandler
-    ),
-  )
+alertDialog(
+  context, 
+  title: "title", 
+  message: "message",
+  actions:  [
+    {
+      "title": "ok",
+      "action": (){ },
+    },
+  ], // optional
+)
   """;
 
 }

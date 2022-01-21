@@ -28,6 +28,17 @@ class _BottomModelSheetDemoState extends State<BottomModelSheetDemo>  with Ticke
     return Scaffold(
       appBar: AppBar(
         title: const Text("Bottom Model Sheet"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+                onTap: (){
+                  Clipboard.setData(const ClipboardData(text: BottomModelSheetUsage.bottomModelSheetUsageCode));
+                },
+                child: const Icon(Icons.copy)
+            ),
+          ),
+        ],
         bottom: TabBar(
           controller: tabController,
           tabs: [
@@ -120,9 +131,9 @@ class _BottomModelSheetDemoState extends State<BottomModelSheetDemo>  with Ticke
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      ElevatedButton(onPressed: (){
+                      /*ElevatedButton(onPressed: (){
                         Clipboard.setData(const ClipboardData(text: BottomModelSheetUsage.bottomModelSheetUsageCode));
-                      }, child: Text("Copy Code")),
+                      }, child: Text("Copy Code")),*/
                       Html(
                           data: BottomModelSheetUsage.bottomModelSheetUsage
                       ),

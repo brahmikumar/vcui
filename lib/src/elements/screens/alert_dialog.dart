@@ -30,6 +30,17 @@ class _AlertDialogDemoState extends State<AlertDialogDemo>  with TickerProviderS
     return Scaffold(
       appBar: AppBar(
         title: const Text("Alert Dialogs"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+              onTap: (){
+                Clipboard.setData(const ClipboardData(text: AlertDialogUsage.alertDialogUsageCode));
+              },
+              child: const Icon(Icons.copy)
+            ),
+          ),
+        ],
         bottom: TabBar(
           controller: tabController,
           tabs: [
@@ -67,64 +78,58 @@ class _AlertDialogDemoState extends State<AlertDialogDemo>  with TickerProviderS
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       textButton(
-                          "Submit",
-                              () => showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AppAlertDialog(
-                                "Submit",
-                                Messages.formSubmitConfirmMsg,
-                                [
-                                  {
-                                    "title": "ok",
-                                    "action": (){
-                                      Navigator.pop(context);
-                                      ToastMessage.snackBarMessage(context, Messages.formSubmitSuccessMsg);
-                                    },
+                        "Submit",
+                        () {
+                          alertDialog(
+                              context,
+                              title: "Submit",
+                              message: Messages.formSubmitConfirmMsg,
+                              actions: [
+                                {
+                                  "title": "ok",
+                                  "action": (){
+                                    Navigator.pop(context);
+                                    ToastMessage.snackBarMessage(context, Messages.formSubmitSuccessMsg);
                                   },
-                                ]
-                            ),
-                          )
+                                },
+                              ]
+                          );
+                        }
                       ),
                       const Divider(),
 
                       textButton(
-                          "Logout",
-                              () => showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AppAlertDialog(
-                                "Logout",
-                                Messages.logoutConfirmMsg,
-                                [
-                                  {
-                                    "title": "ok",
-                                    "action": (){
-                                      Navigator.pop(context);
-                                      ToastMessage.snackBarMessage(context, Messages.logoutSuccessMsg);
-                                    },
+                        "Logout",
+                        () {
+                          alertDialog(
+                              context,
+                              title: "Logout",
+                              message: Messages.logoutConfirmMsg,
+                              actions: [
+                                {
+                                  "title": "ok",
+                                  "action": (){
+                                    Navigator.pop(context);
+                                    ToastMessage.snackBarMessage(context, Messages.logoutSuccessMsg);
                                   },
-                                  {
-                                    "title": "Cancel",
-                                    "action": (){
-                                      Navigator.pop(context);
-                                    },
-                                  }
-                                ]
-                            ),
-                          )
+                                },
+                                {
+                                  "title": "Cancel",
+                                  "action": (){
+                                    Navigator.pop(context);
+                                  },
+                                }
+                              ]
+                          );
+                        }
                       ),
                       const Divider(),
 
-                      /*textButton(
-                  "Logout",
-                      () => showDialog<String>(
-                    context: context,
-                    builder: (BuildContext context) => AppAlertDialog(
-                        "Logout",
-                        Messages.logoutConfirmMsg,
-                       []
-                    ),
-                  )
-              ),*/
+                      textButton(
+                        "Alert Dialog without actions",
+                            () => alertDialog(context, title: "Offline", message: "You are in offline mode",)
+                      ),
+                      const Divider(),
 
                     ],
                   ),
@@ -132,12 +137,24 @@ class _AlertDialogDemoState extends State<AlertDialogDemo>  with TickerProviderS
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      ElevatedButton(onPressed: (){
+                      /*ElevatedButton(onPressed: (){
                         Clipboard.setData(const ClipboardData(text: AlertDialogUsage.alertDialogUsageCode));
-                      }, child: Text("Copy Code")),
+                      }, child: Text("Copy Code")),*/
+
                       Html(
                           data: AlertDialogUsage.alertDialogUsage
                       ),
+                      /*InkWell(
+                          onTap: (){
+                            Clipboard.setData(const ClipboardData(text: AlertDialogUsage.alertDialogUsageCode));
+                          },
+                          child: Row(
+                            children: [
+                              Text("Copy"),
+                              Icon(Icons.copy),
+                            ],
+                          )
+                      ),*/
                     ],
                   ),
                 ),

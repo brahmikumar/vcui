@@ -13,6 +13,31 @@ import 'package:vcui/vui/ui_components/buttons.dart';
     </code>
     </pre>
   """;
+static const String buttonsUsage = """
+    <pre>
+    <code>
+import 'package:vcui/vui/ui_components/buttons.dart';
+    
+button("Button title", onPressHandler);
+
+textButton("Button title", onPressHandler);
+
+outlinedButton("Button title", onPressHandler);
+
+fullWidthButton("Button title", onPressHandler, buttonWidth);
+
+customButton("Button title", onPressHandler, buttonColor, buttonTextColor);
+     
+    <h1>Example</h1>
+    button(
+      "Normal Button", 
+      (){
+        // on button click action
+      }
+    )
+    </code>
+    </pre>
+  """;
 
   static const String normalButtonCode = """
    

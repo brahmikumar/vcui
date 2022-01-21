@@ -28,6 +28,17 @@ class _ButtonsDemoState extends State<ButtonsDemo> with TickerProviderStateMixin
     return Scaffold(
       appBar: AppBar(
         title: const Text("Buttons List"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+                onTap: (){
+                  Clipboard.setData(const ClipboardData(text: ButtonUsage.normalButtonCode));
+                },
+                child: const Icon(Icons.copy)
+            ),
+          ),
+        ],
         bottom: TabBar(
           controller: tabController,
           tabs: [
@@ -93,11 +104,14 @@ class _ButtonsDemoState extends State<ButtonsDemo> with TickerProviderStateMixin
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      ElevatedButton(onPressed: (){
-                        Clipboard.setData(const ClipboardData(text: ButtonUsage.normalButtonCode));
-                      }, child: Text("Copy Code")),
+                      /*ElevatedButton(
+                        onPressed: (){
+                          Clipboard.setData(const ClipboardData(text: ButtonUsage.normalButtonCode));
+                        },
+                        child: Text("Copy Code"),
+                      ),*/
                       Html(
-                          data: ButtonUsage.customButton
+                          data: ButtonUsage.buttonsUsage
                       ),
                     ],
                   ),

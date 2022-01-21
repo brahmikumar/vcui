@@ -16,6 +16,7 @@ class ToastMessagesDemo extends StatefulWidget {
   State<ToastMessagesDemo> createState() => _ToastMessagesDemoState();
 }
 
+
 class _ToastMessagesDemoState extends State<ToastMessagesDemo>  with TickerProviderStateMixin{
   late TabController tabController;
   @override
@@ -30,6 +31,17 @@ class _ToastMessagesDemoState extends State<ToastMessagesDemo>  with TickerProvi
     return Scaffold(
       appBar: AppBar(
         title: const Text("Toast Messages"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+                onTap: (){
+                  Clipboard.setData(const ClipboardData(text: ToastMessagesUsage.toastMessagesUsageCode));
+                },
+                child: const Icon(Icons.copy)
+            ),
+          ),
+        ],
         bottom: TabBar(
           controller: tabController,
           tabs: [
@@ -105,9 +117,9 @@ class _ToastMessagesDemoState extends State<ToastMessagesDemo>  with TickerProvi
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      ElevatedButton(onPressed: (){
+                      /*ElevatedButton(onPressed: (){
                         Clipboard.setData(const ClipboardData(text: ToastMessagesUsage.toastMessagesUsageCode));
-                      }, child: Text("Copy Code")),
+                      }, child: Text("Copy Code")),*/
                       Html(
                           data: ToastMessagesUsage.toastMessagesUsage
                       ),

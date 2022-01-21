@@ -28,6 +28,17 @@ class _LabelsDemoState extends State<LabelsDemo>  with TickerProviderStateMixin{
     return Scaffold(
       appBar: AppBar(
         title: const Text("Labels List"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+                onTap: (){
+                  Clipboard.setData(const ClipboardData(text: LabelsUsage.labelUsageCode));
+                },
+                child: const Icon(Icons.copy)
+            ),
+          ),
+        ],
         bottom: TabBar(
           controller: tabController,
           tabs: [
@@ -85,9 +96,9 @@ class _LabelsDemoState extends State<LabelsDemo>  with TickerProviderStateMixin{
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      ElevatedButton(onPressed: (){
+                      /*ElevatedButton(onPressed: (){
                         Clipboard.setData(const ClipboardData(text: LabelsUsage.labelUsageCode));
-                      }, child: Text("Copy Code")),
+                      }, child: Text("Copy Code")),*/
                       Html(
                           data: LabelsUsage.labelUsage
                       ),

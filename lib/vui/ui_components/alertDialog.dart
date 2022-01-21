@@ -21,3 +21,16 @@ class AppAlertDialog extends StatelessWidget {
     );
   }
 }
+
+Future alertDialog(context, {title, message, actions = const []}) {
+
+  return showDialog<String>(
+    context: context,
+    builder: (BuildContext context) => AppAlertDialog(
+        title,
+        message,
+        actions
+    ),
+  );
+
+}
