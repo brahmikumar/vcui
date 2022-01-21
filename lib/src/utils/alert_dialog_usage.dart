@@ -1,7 +1,7 @@
 class AlertDialogUsage{
   static const String alertDialogUsage = """
     <pre>
-import 'package:vcui/vui/ui_components/alertDialog.dart';
+import 'package:vcui/lib/vui/ui_components/alertDialog.dart';
 
   alertDialog(
     context, 
@@ -31,7 +31,7 @@ import 'package:vcui/vui/ui_components/alertDialog.dart';
   """;
 
 static const String alertDialogUsageCode = """
-import 'package:vcui/vui/ui_components/alertDialog.dart';
+import 'package:vcui/lib/vui/ui_components/alertDialog.dart';
 
 alertDialog(
   context, 

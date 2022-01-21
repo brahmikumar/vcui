@@ -44,7 +44,7 @@ action: // Default value is empty array, set model sheet actions, acton object h
   """;
 
   static const String bottomModelSheetUsageCode = """
-import 'package:vcui/vui/ui_components/bottom_model_sheet.dart';
+import 'package:vcui/lib/vui/ui_components/bottom_model_sheet.dart';
 
 bottomSheet(
   context,

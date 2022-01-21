@@ -17,7 +17,7 @@ import 'package:vcui/vui/ui_components/labels.dart';
 
 
   static const String labelUsageCode = """
-import 'package:vcui/vui/ui_components/labels.dart';
+import 'package:vcui/lib/vui/ui_components/labels.dart';
     
   headlineLabel(context, "Text Labels"),
 

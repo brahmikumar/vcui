@@ -41,7 +41,7 @@ customButton("Button title", onPressHandler, buttonColor, buttonTextColor);
 
   static const String normalButtonCode = """
    
-import 'package:vcui/vui/ui_components/buttons.dart';
+import 'package:vcui/lib/vui/ui_components/buttons.dart';
     
     button("Button title", (){});
 
